@@ -1,0 +1,43 @@
+<div class="container">
+    <div id="cajaForm" class="container my-auto">
+        <div class="row my-5 justify-content-center">
+          <div class="col-7">
+            <h2>Quejas</h2><br>
+            <form class="row g-3" action="/paciente" name="form" method="POST">
+              <div class="col-10">
+                <label for="inputNombre" class="form-label">Nombre</label>
+                <input type="text" name="nombre" class="form-control" id="inputNombre" required>
+              </div>
+      
+              <div class="col-md-10">
+                <label for="inputPais" class="form-label">País</label>
+                <select #selectField id="inputPais" class="form-select" required>
+                  <option value="" selected disabled>Seleccione un país</option>
+                  <option *ngFor="let pais of paises" [value]="pais.id">{{pais.name}}</option>
+                </select>
+              </div>
+
+              <div class="col-10">
+                <label for="inputObservacion" class="form-label">Observación</label>
+                <textarea type="text" name="observacion" class="form-control" id="inputObservacion" required></textarea>
+              </div>
+
+              <div class="col-3 mx-auto">
+                <button type="submit" class="btn btn-primary" onsubmit="onSubmit()">Crear Cuenta</button>
+              </div>
+      
+            </form>
+          </div>
+        </div>    
+      </div>
+</div>
+
+
+<!--
+<form id="formulario" #quejaForm="ngForm" (ngSubmit)="addQueja(quejaForm)">
+    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="quejaService.selectedQueja.nombre" placeholder="nombre" required>
+    <input type="text" name="pais" #pais="ngModel" [(ngModel)]="quejaService.selectedQueja.pais" placeholder="pais" required>
+    <input type="text" name="observacion" #observacion="ngModel" [(ngModel)]="quejaService.selectedQueja.observacion" placeholder="observacion" required>
+    <button class="button" type="ngSubmit">Save</button>
+</form>
+-->

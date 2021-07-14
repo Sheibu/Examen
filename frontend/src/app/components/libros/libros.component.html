@@ -1,0 +1,17 @@
+    <div class="container">
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-2">
+        <div class="col" *ngFor="let item of Lista">
+          <div class="card" style="text-align: center;">
+              <h5 class="card-title">{{item.nombre}}</h5>
+              <div class="container" style="width: 80%;">
+                <img src="{{item.imagen}}" class="card-img-top" alt="...">
+              </div>
+            <div class="card-body">
+              <h6 class="card-text">Autor: {{item.autor}}</h6>
+              <h6 class="card-text">Páginas: {{item.paginas}}</h6>
+            </div>
+          </div>
+        </div>
+
+      </div>
+</div>
