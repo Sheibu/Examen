@@ -1,3 +1,4 @@
+import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 //import { Form, NgForm } from '@angular/forms';
 //import { Queja } from 'src/app/models/queja';
@@ -15,10 +16,16 @@ export class QuejasComponent implements OnInit {
 
   paises: Array<any> = [];
 
-  aux: any;
-  constructor() {
-    this.aux = document.getElementById("cajaForm");
-  }
+  cajaForm!: HTMLInputElement;
+  cajaMensaje!: HTMLInputElement;
+
+  nombre!: HTMLInputElement;
+  pais!: HTMLInputElement;
+  observacion!: HTMLInputElement;
+
+
+
+  constructor() { }
   
   ngOnInit(): void {
 
@@ -885,11 +892,30 @@ export class QuejasComponent implements OnInit {
 
   
   onSubmit(){
-    if(document.getElementById("inputNombre")){
+    this.cajaForm = <HTMLInputElement>document.getElementById("cajaForm");
+    this.cajaMensaje = <HTMLInputElement>document.getElementById("cajaMensaje");
 
+    this.nombre = <HTMLInputElement>document.getElementById("inputNombre");
+    this.pais = <HTMLInputElement>document.getElementById("inputPais");
+    this.observacion = <HTMLInputElement>document.getElementById("inputObservacion");
+
+    
+    if(this.nombre.value==''){
+      alert("Ingrese un nombre");
+      return;
+    }
+    if(this.pais.value==''){
+      alert("Seleccione un país");
+      return;
+    }
+    if(this.observacion.value==''){
+      alert("Ingrese una observación");
+      return;
     }
     console.log((<HTMLInputElement>document.getElementById("inputNombre")).value);
-    this.aux.style.display = "";
+    
+    this.cajaForm.style.display = "none";
+    this.cajaMensaje.style.display = "block";
   }
 
   /*

@@ -1,35 +1,40 @@
-<div class="container">
-    <div id="cajaForm" class="container my-auto">
-        <div class="row my-5 justify-content-center">
-          <div class="col-7">
-            <h2>Quejas</h2><br>
-            <form class="row g-3" action="/paciente" name="form" method="POST">
-              <div class="col-10">
-                <label for="inputNombre" class="form-label">Nombre</label>
-                <input type="text" name="nombre" class="form-control" id="inputNombre" required>
-              </div>
-      
-              <div class="col-md-10">
-                <label for="inputPais" class="form-label">País</label>
-                <select #selectField id="inputPais" class="form-select" required>
-                  <option value="" selected disabled>Seleccione un país</option>
-                  <option *ngFor="let pais of paises" [value]="pais.id">{{pais.name}}</option>
-                </select>
-              </div>
+<div class="container py-5">
+  <div id="cajaForm" class="container my-auto">
+    <div class="row my-5 justify-content-center">
+      <div class="col-7">
+        <h2>Quejas</h2><br>
 
-              <div class="col-10">
-                <label for="inputObservacion" class="form-label">Observación</label>
-                <textarea type="text" name="observacion" class="form-control" id="inputObservacion" required></textarea>
-              </div>
-
-              <div class="col-3 mx-auto">
-                <button type="submit" class="btn btn-primary" onsubmit="onSubmit()">Crear Cuenta</button>
-              </div>
-      
-            </form>
+        <form class="row g-3" action="/paciente" name="form" method="POST">
+          <div class="col-10">
+            <label for="inputNombre" class="form-label">Nombre</label>
+            <input type="text" name="nombre" class="form-control" id="inputNombre" required>
           </div>
-        </div>    
+  
+          <div class="col-md-10">
+            <label for="inputPais" class="form-label">País</label>
+            <select #selectField id="inputPais" class="form-select" required>
+              <option value="" selected disabled>Seleccione un país</option>
+              <option *ngFor="let pais of paises" [value]="pais.id">{{pais.name}}</option>
+            </select>
+          </div>
+
+          <div class="col-10">
+            <label for="inputObservacion" class="form-label">Observación</label>
+            <textarea type="text" name="observacion" class="form-control" id="inputObservacion" required></textarea>
+          </div>
+
+          <div class="col-3 mx-auto">
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Crear Cuenta</button>
+          </div>
+        </form>
+
       </div>
+      
+    </div>    
+  </div>
+  <div id="cajaMensaje" class="container mx-auto py-5" style="display: none;">
+    <h5>Su queja fue recibida. Muy pronto nos estaremos comunicando con usted</h5>
+  </div>
 </div>
 
 
